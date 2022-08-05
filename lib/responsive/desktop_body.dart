@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyDesktopBody extends StatelessWidget {
-  const MyDesktopBody({Key? key}) : super(key: key);
+  final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +20,78 @@ class MyDesktopBody extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: AspectRatio(
-                      aspectRatio: 16 / 9,
-                      child: Container(
-                        height: 250,
-                        color: Colors.deepPurple[400],
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                    child: Container(
+                      width: double.infinity,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      alignment: AlignmentDirectional(0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                              child: TextFormField(
+                                controller: TextEditingController(),
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.white,
+                                      width: 2,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  prefixIcon: Icon(
+                                    Icons.search_sharp,
+                                    color: Color(0xFF57636C),
+                                  ),
+                                ),
+                                style: TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF57636C),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                            child: ElevatedButton(
+                              child: Text(
+                                'Search',
+                                style: TextStyle(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                              onPressed: () {
+                                // Aksi ketika button diklik
+                              },
+                              style: ElevatedButton.styleFrom(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(5),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   Expanded(
                     child: ListView.builder(
-                        itemCount: 8,
+                        itemCount: numberList.length,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -72,7 +132,7 @@ class MyDesktopBody extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Project Name',
+                                              '${numberList[index]}',
                                               style: TextStyle(
                                                 fontFamily: 'Outfit',
                                                 color: Color(0xFF101213),
@@ -121,7 +181,7 @@ class MyDesktopBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                width: 200,
+                width: 350,
                 color: Colors.deepPurple[300],
               ),
             )
