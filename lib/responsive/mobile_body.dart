@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyMobileBody extends StatelessWidget {
-  const MyMobileBody({Key? key}) : super(key: key);
-
+  final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,13 +55,35 @@ class MyMobileBody extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                    child: ElevatedButton(
+                      child: Text(
+                        'Search',
+                        style: TextStyle(
+                          fontFamily: 'Lexend Deca',
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      onPressed: () {
+                        // Aksi ketika button diklik
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 8,
+                itemCount: numberList.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -98,7 +119,7 @@ class MyMobileBody extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Project Name',
+                                  '${numberList[index]}',
                                   style: TextStyle(
                                     fontFamily: 'Outfit',
                                     color: Color(0xFF101213),
