@@ -14,12 +14,49 @@ class MyMobileBody extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: AspectRatio(
-              aspectRatio: 50 / 9,
-              child: Container(
-                height: 250,
-                color: Colors.deepPurple[400],
+            padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+            child: Container(
+              width: double.infinity,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              alignment: AlignmentDirectional(0, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                      child: TextFormField(
+                        controller: TextEditingController(),
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          prefixIcon: Icon(
+                            Icons.search_sharp,
+                            color: Color(0xFF57636C),
+                          ),
+                        ),
+                        style: TextStyle(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF57636C),
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
