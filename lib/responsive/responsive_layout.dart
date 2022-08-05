@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_responsive/responsive/dimensions.dart';
+
+class ResponsiveLayout extends StatelessWidget {
+  final mobileBody;
+  final desktopBody;
+
+  ResponsiveLayout({required this.mobileBody, required this.desktopBody});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < mobileWidth ) {
+          return mobileBody;
+        } else {
+          return desktopBody;
+        }
+      },
+    );
+  }
+}
