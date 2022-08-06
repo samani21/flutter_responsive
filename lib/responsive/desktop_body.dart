@@ -16,6 +16,13 @@ class MyDesktopBody extends StatelessWidget {
         child: Row(
           children: [
             //first Column
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 200,
+                color: Colors.deepPurple[300],
+              ),
+            ),
             Expanded(
               child: Column(
                 children: [
@@ -177,11 +184,10 @@ class MyDesktopBody extends StatelessWidget {
               ),
             ),
 
-            // second Column
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                width: 350,
+                width: 500,
                 color: Colors.deepPurple[300],
               ),
             )
