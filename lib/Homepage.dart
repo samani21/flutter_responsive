@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive/responsive/browser_body.dart';
 import 'package:flutter_responsive/responsive/desktop_body.dart';
 import 'package:flutter_responsive/responsive/mobile_body.dart';
 import 'package:flutter_responsive/responsive/responsive_layout.dart';
@@ -16,7 +17,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: ResponsiveLayout(
         mobileBody: HiddenDrawer(),
-        desktopBody: MyDesktopBody(),
+        desktopBody: HiddenDrawerDesktop(),
+        browserBody: MyBrowserBody(),
       ),
     );
   }
