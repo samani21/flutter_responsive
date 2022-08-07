@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive/model/perguruan_tinggi.dart';
+import 'package:flutter_responsive/pages/detail_screen.dart';
 
 class HomePageMobile extends StatefulWidget {
   const HomePageMobile({Key? key}) : super(key: key);
@@ -7,7 +9,6 @@ class HomePageMobile extends StatefulWidget {
 }
 
 class _HomePageMobileState extends State<HomePageMobile> {
-  final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,9 +86,16 @@ class _HomePageMobileState extends State<HomePageMobile> {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: numberList.length,
-                itemBuilder: (context, index) {
-                  return Padding(
+              itemBuilder: (context, index) {
+                final PerguruanTinggi place = perguruanTinggList[index];
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return DetailScreen(place: place);
+                    }));
+                  },
+                  child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
@@ -121,7 +129,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${numberList[index]}',
+                                  place.name,
                                   style: TextStyle(
                                     fontFamily: 'Outfit',
                                     color: Color(0xFF101213),
@@ -129,38 +137,41 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 4, 0, 0),
-                                  child: Text(
-                                    '4 Folders',
-                                    style: TextStyle(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF57636C),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 4, 0, 0),
-                                  child: Text(
-                                    '3 upcoming due dates',
-                                    style: TextStyle(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF4B39EF),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
+                                // Padding(
+                                //   padding: EdgeInsetsDirectional.fromSTEB(
+                                //       0, 4, 0, 0),
+                                //   child: Text(
+                                //     '4 Folders',
+                                //     style: TextStyle(
+                                //       fontFamily: 'Outfit',
+                                //       color: Color(0xFF57636C),
+                                //       fontSize: 14,
+                                //       fontWeight: FontWeight.normal,
+                                //     ),
+                                //   ),
+                                // ),
+                                // Padding(
+                                //   padding: EdgeInsetsDirectional.fromSTEB(
+                                //       0, 4, 0, 0),
+                                //   child: Text(
+                                //     '3 upcoming due dates',
+                                //     style: TextStyle(
+                                //       fontFamily: 'Outfit',
+                                //       color: Color(0xFF4B39EF),
+                                //       fontSize: 14,
+                                //       fontWeight: FontWeight.w500,
+                                //     ),
+                                //   ),
+                                // ),
                               ]),
                         ),
                       ]),
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+              itemCount: perguruanTinggList.length,
+            ),
           )
         ],
       ),
